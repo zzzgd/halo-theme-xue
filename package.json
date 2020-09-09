@@ -1,39 +1,103 @@
 {
-  "name": "halo-theme-hshan",
+  "name": "with-redux",
   "version": "1.0.0",
-  "description": "> 原始主题见[Subtle Galaxy](https://github.com/GalaxySuze/gridea-theme-subtle-galaxy)，原设计自Ghost Subtle主题，感谢做出这么漂亮的主题， 在原主题上面新增日志页面和目录以及一些个性化配置",
-  "main": "index.js",
   "scripts": {
-    "build": "npm run build-clean && npm run build-less && npm run build-autoprefix && npm run build-cleancss",
-    "build-autoprefix": "postcss --use autoprefixer --map false --output source/css/style.css source/css/style.css",
-    "build-clean": "rimraf css",
-    "build-cleancss": "cleancss -o dist/style.min.css source/css/style.css",
-    "build-less": "lessc source/css/style.less source/css/style.css",
-    "deploy": "npm run build",
-    "start": "npm run build-less -- --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/xzzai/halo-theme-hshan.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/xzzai/halo-theme-hshan/issues"
-  },
-  "homepage": "https://github.com/xzzai/halo-theme-hshan#readme",
-  "devDependencies": {
-    "autoprefixer": "^9.7.4",
-    "clean-css-cli": "^4.3.0",
-    "less": "^3.11.1",
-    "postcss-cli": "^7.1.0",
-    "rimraf": "^3.0.2",
-    "uglify-js": "^3.8.0"
+    "dev": "cross-env node ./server/app.js src",
+    "build": "next build",
+    "start": "cross-env NODE_ENV=production node ./server/app.js",
+    "lint": "npm run lint:js",
+    "lint:js": "eslint src --fix",
+    "build:css": "postcss src/assets/styles/index.scss -o src/assets/styles/index.css ",
+    "prettier": "prettier --config .prettierrc \"./**/*.+(js|json|jsx)\" --write"
   },
   "dependencies": {
-    "bulma": "^0.9.0",
-    "micromodal": "^0.4.6",
-    "tailwindcss": "^1.4.6"
-  }
+    "@emotion/core": "^10.0.35",
+    "@emotion/styled": "^10.0.27",
+    "@typefaces-pack/typeface-inter": "^1.0.3",
+    "axios": "^0.20.0",
+    "classnames": "^2.2.6",
+    "clipboard": "^2.0.6",
+    "connected-next-router": "^3.1.0",
+    "cross-env": "^7.0.2",
+    "emoji-mart": "^3.0.0",
+    "emotion": "^10.0.27",
+    "emotion-server": "^10.0.27",
+    "express": "^4.17.1",
+    "fs": "^0.0.1-security",
+    "highlight.js": "^10.1.2",
+    "history": "^5.0.0",
+    "invariant": "^2.2.4",
+    "jquery": "^3.5.1",
+    "jsdom": "^16.4.0",
+    "justifiedGallery": "^3.8.1",
+    "loaders.css": "^0.1.2",
+    "lodash": "^4.17.20",
+    "marked": "^1.1.1",
+    "next": "latest",
+    "next-redux-wrapper": "^6.0.2",
+    "next-routes": "^1.4.2",
+    "prop-types": "^15.7.2",
+    "qs": "^6.9.4",
+    "react": "^16.9.0",
+    "react-body-classname": "^1.3.1",
+    "react-dom": "^16.9.0",
+    "react-outside-click-handler": "^1.3.0",
+    "react-paginate": "^6.3.2",
+    "react-redux": "^7.1.0",
+    "react-scroll": "^1.8.1",
+    "react-simple-img": "^2.3.9",
+    "redux": "^3.6.0",
+    "redux-devtools-extension": "^2.13.2",
+    "redux-immutable": "^4.0.0",
+    "redux-thunk": "^2.3.0",
+    "sass": "^1.26.10",
+    "sass-loader": "^10.0.1",
+    "signale": "^1.4.0",
+    "tailwindcss": "^1.7.6",
+    "typeface-metropolis": "^0.0.74",
+    "ua-parser-js": "^0.7.21",
+    "viewerjs": "^1.6.2"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jest": "^23.20.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^4.1.0",
+    "lint-staged": "^10.2.13",
+    "postcss-cli": "^7.1.1",
+    "postcss-import": "^12.0.1",
+    "postcss-preset-env": "^6.7.0",
+    "prettier": "^2.1.1"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix"
+    ],
+    "./**/*.+(js|json|jsx)": [
+      "prettier --write"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ],
+    "browserslist": [
+      ">0.3%",
+      "not ie 11",
+      "not dead",
+      "not op_mini all"
+    ]
+  },
+  "license": "MIT"
 }

@@ -1,0 +1,26 @@
+{
+    "apps" : [{
+        "name"      : "hello Blog",
+        "script"    : "server/app.js",
+        "env": {
+            "COMMON_VARIABLE": "true"
+        },
+        "env_production" : {
+            "NODE_ENV": "production"
+        }
+    }],
+    "deploy" : {
+            "production" : {
+                "user" : "root",
+                "host" : ["127.xx.xx.xx"],
+                "ref"  : "origin/master",
+                "repo" : "https://github.com/xx/xx",
+                "path" : "/opt/app/react-next",
+                "post-deploy" : "cnpm install && npm run build && pm2 startOrRestart ecosystem.json --env production",
+                "ssh_options": ["StrictHostKeyChecking=no", "PasswordAuthentication=yes"],
+                "env"  : {
+                    "NODE_ENV": "production"
+            }
+        }
+    }
+}

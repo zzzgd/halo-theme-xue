@@ -1,0 +1,339 @@
+@import 'emoji-mart/css/emoji-mart.css';
+
+.x-comment-panel svg {
+  width: 22px;
+  height: 22px;
+}
+
+input:not([type="checkbox"]):not([type="number"]):not([type="radio"]):not([type=submit]):not([type=file]), input[type="number"] {
+  overflow: inherit;
+}
+
+textarea, input:not([type="checkbox"]):not([type="number"]):not([type="radio"]):not([type=submit]):not([type=file]), input[type="number"] {
+  font-size: 14px;
+  line-height: 20px;
+  padding: .7111em 1em;
+  background: #fff;
+  border: none;
+  box-sizing: border-box;
+  border-radius: 0;
+  color: #333;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.text-right {
+  text-align: right;
+}
+
+
+.x-comment-btn:active, .x-comment-btn:hover {
+  color: #3090e4;
+  border-color: #3090e4;
+}
+
+.x-comment-wrap {
+  border: 1px solid #f0f0f0;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  position: relative;
+  padding: 10px;
+  background: #FFFFFF;
+}
+
+.x-comment-wrap .cancel-reply-btn {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  cursor: pointer;
+}
+
+.x-comment-wrap .x-comment-edit {
+  position: relative;
+  padding-top: 10px;
+}
+
+.x-comment-editor {
+  width: 100%;
+  min-height: 8.75em;
+  font-size: .875em;
+  background: transparent;
+  resize: vertical;
+  -webkit-transition: all .25s ease;
+  transition: all .25s ease;
+
+
+}
+
+.x-comment-editor::-webkit-scrollbar {
+ width: 0 !important;
+}
+
+.x-comment-input {
+  border: none;
+  resize: none;
+  outline: none;
+  padding: 10px 5px;
+  max-width: 100%;
+  font-size: .775em;
+}
+
+.x-comment-wrap .x-comment-header .x-comment-input {
+  width: 33.33%;
+  border-bottom: 1px dashed #dedede;
+}
+
+.x-comment-rot {
+  font-size: 0;
+  padding: 10px 0;
+}
+
+.x-comment-rot .x-comment-col.x-comment-col-30 {
+  width: 30%;
+}
+
+.x-comment-rot .x-comment-col.x-comment-col-60 {
+  width: 60%;
+}
+
+.x-comment-rot .x-comment-col.x-comment-col-70 {
+  width: 70%;
+}
+
+.x-comment-icon.actived span:before {
+  color: #66b1ff;
+}
+
+.x-comment-rot .x-comment-col {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 14px;
+}
+
+.x-comment-rot .x-comment-col.x-comment-ctrl {
+  font-size: 12px;
+}
+
+.x-comment-rot .x-comment-col.x-comment-col-40 {
+  width: 40%;
+}
+
+
+.x-comment-icon {
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  fill: #555;
+  vertical-align: middle;
+}
+
+.x-comment-icon+.x-comment-icon {
+  margin-left: 10px;
+}
+
+.x-comment-rot {
+  font-size: 0;
+  padding: 10px 0;
+}
+
+.x-comment-wrap .x-comment-emojis {
+  //display: none;
+  font-size: 18px;
+  max-height: 205px;
+  overflow: auto;
+  padding-bottom: 10px;
+  -webkit-box-shadow: 0 0 1px #f0f0f0;
+  box-shadow: 0 0 1px #f0f0f0;
+}
+
+.x-comment-wrap .x-comment-preview {
+  padding: 7px;
+  -webkit-box-shadow: 0 0 1px #f0f0f0;
+  box-shadow: 0 0 1px #f0f0f0;
+}
+
+.x-comment-count {
+  padding: 5px;
+  font-weight: 600;
+  font-size: 1.25em;
+}
+
+.x-comment-btn {
+  -webkit-transition-duration: .4s;
+  transition-duration: .4s;
+  text-align: center;
+  color: #555;
+  border: 1px solid #ededed;
+  border-radius: .3em;
+  display: inline-block;
+  background: transparent;
+  margin-bottom: 0;
+  font-weight: 400;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  white-space: nowrap;
+  padding: .5em 1.25em;
+  font-size: .875em;
+  line-height: 1.42857143;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  outline: none;
+}
+
+.x-comment-cards .x-comment-card {
+  padding-top: 1.25em;
+  position: relative;
+  display: block;
+}
+
+.x-comment-cards .x-comment-card .x-comment-img {
+  width: 3.125em;
+  height: 3.125em;
+  float: left;
+  border-radius: 50%;
+  margin-right: .7525em;
+  border: 1px solid #f5f5f5;
+  padding: .125em;
+}
+
+.x-comment-cards .x-comment-card .x-comment-h {
+  overflow: hidden;
+  padding-bottom: .5em;
+  padding-right: 1rem;
+  border-bottom: 1px dashed #f5f5f5;
+}
+
+.x-comment-cards .x-comment-card .x-comment-head {
+  line-height: 1.5;
+  margin-top: 0;
+}
+
+.x-comment-cards .x-comment-card .x-comment-head .x-comment-nick {
+  position: relative;
+  font-size: .875em;
+  font-weight: 500;
+  margin-right: .875em;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.x-comment-sys {
+  display: inline-block;
+  padding: .2em .5em;
+  font-size: .75em;
+  border-radius: .2em;
+  margin-right: .3em;
+}
+
+.x-comment-sys, .x-comment-time {
+  color: #b3b3b3;
+}
+
+.x-comment-cards .x-comment-card .x-comment-h .x-comment-meta {
+  line-height: 1;
+  position: relative;
+}
+
+.x-comment-cards .x-comment-card .x-comment-h .x-comment-time {
+  font-size: .75em;
+  margin-right: .875em;
+}
+
+.x-comment-cards .x-comment-card .x-comment-h .x-comment-meta .x-comment-at {
+  font-size: .8125em;
+  color: #ef2f11;
+  cursor: pointer;
+  float: right;
+}
+
+.x-comment-cards .x-comment-card .x-comment-content {
+  word-wrap: break-word;
+  word-break: break-all;
+  font-size: .875em;
+  line-height: 2;
+  position: relative;
+  margin-bottom: .75em;
+  padding-top: .625em;
+
+  p {
+    margin:inherit !important;
+    font-size: 1rem;
+  }
+}
+
+.comment-author-tag {
+  font-size: 1rem;
+  min-width: 5rem;
+  padding: .3rem .5rem;
+  border-radius: .2rem;
+  background-color: #f9f7f7;
+}
+
+.x-comment-cards>.x-comment-card>.vquote {
+  padding-left: 1em;
+
+  //border-left: 1px dashed hsla(0,0%,93%,.5);
+}
+
+.alert {
+  -webkit-animation: top20 .5s;
+  animation: top20 .5s;
+  border-radius: 4px;
+  padding: 8px 16px;
+  background-color: #f44336;
+  color: #fff;
+  opacity: 1;
+  -webkit-transition: all .6s;
+  transition: all .6s;
+  margin-bottom: 15px;
+}
+
+.alert.warning {
+  background-color: #ff9800;
+}
+
+.alert.info {
+  background-color: #2196f3;
+}
+
+.alert .closebtn {
+  margin-left: 15px;
+  color: #fff;
+  font-weight: 700;
+  float: right;
+  font-size: 22px;
+  line-height: 16px;
+  cursor: pointer;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.border-0 {
+  border: 0!important;
+}
+
+.bg-light {
+  background-color: #f8f9fa!important;
+}
+
+.emoji-mart-anchors, .emoji-mart-search, .emoji-mart-preview, .emoji-mart-category-label {
+  display: none !important;
+  height: 0 !important;
+}
+
+.x-comment-content {
+  h1,h2,h3,h4,h5,h6 {
+    margin-top: inherit !important;
+    padding-top: inherit !important;
+  }
+}
+
+.emoji-mart-scroll {
+  height: 130px !important;
+}
