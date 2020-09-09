@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { isEmpty, timeAgo } from 'utils/commonUtil';
+import { isEmpty, timeAgo, decodeHTML } from 'utils/commonUtil';
 import CommentEditor from './CommentEditor';
 import ua from 'ua-parser-js';
 import { markdown } from 'utils/markdownUtil';
@@ -25,7 +25,7 @@ class CommentNode extends React.PureComponent {
 
       this.setState(
         {
-          content: markdown(content),
+          content: markdown(decodeHTML(content)),
         },
         () => {
           const commentNode = $(`#commentNode-${id}`);

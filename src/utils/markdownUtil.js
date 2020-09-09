@@ -94,8 +94,7 @@ renderer.image = function (href, title, text) {
 
   const reg = /([^]*)\[([^]*)\]\(([^]*)\)/;
   const isContainUrl = reg.test(text);
-  const imgHtml = `<img src=${href} alt=${text}><br>
-                ${text}`;
+  const imgHtml = `<img src=${href} alt=${text}><span class="text-center" style="font-size: .8rem">${text}</span>`;
   return `<p style="text-align: center;">
             ${isContainUrl ? getImgWithUrlHtml(text.match(reg)) : imgHtml}
           </p>`;
@@ -139,7 +138,7 @@ function formatCode(code, infostring, escaped) {
     '" class="hljs language-' +
     escape(lang, true) +
     '">' +
-    (escaped ? code : escape(code, true)) +
+    code +
     '</code>' +
     '</pre>\n'
   );

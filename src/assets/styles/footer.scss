@@ -82,6 +82,11 @@ footer.footer .offsite-links a {
   margin: 0 auto !important;
 }
 
+.site-info .blog-footer-info {
+  line-height: 1.4rem;
+  margin: 0 auto !important;
+}
+
 a {
   color: $baseColor;
   text-decoration: none;
@@ -106,6 +111,7 @@ a {
     display: inline-block;
     background-color: #4d4d4d;
     padding: 8px 4px 4px 6px;
+    margin-right: 4px;
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
   }

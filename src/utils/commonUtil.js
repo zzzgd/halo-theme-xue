@@ -203,3 +203,37 @@ export function timeAgo(dateTimeStamp) {
   }
   return result;
 }
+
+export function archivePhotos(data) {
+  if (isEmpty(data)) {
+    return [];
+  }
+  let c = [];
+  let d = {};
+  data.forEach(element => {
+    if (!d[element.team]) {
+      c.push({
+        team: element.team,
+        photos: [element],
+      });
+      d[element.team] = element;
+    } else {
+      c.forEach(ele => {
+        if (ele.team === element.team) {
+          ele.photos.push(element);
+        }
+      });
+    }
+  });
+  return c;
+}
+
+// 特殊字符转义成HTML标签
+export function decodeHTML(html) {
+  var output,
+    elem = document.createElement('div');
+  elem.innerHTML = html;
+  output = elem.innerText || elem.textContent;
+  elem = null;
+  return output;
+}

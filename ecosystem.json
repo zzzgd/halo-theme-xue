@@ -16,6 +16,7 @@
                 "ref"  : "origin/master",
                 "repo" : "https://github.com/xx/xx",
                 "path" : "/opt/app/react-next",
+				"pre-setup" : "rm -rf /opt/app/react-next/source",
                 "post-deploy" : "cnpm install && npm run build && pm2 startOrRestart ecosystem.json --env production",
                 "ssh_options": ["StrictHostKeyChecking=no", "PasswordAuthentication=yes"],
                 "env"  : {

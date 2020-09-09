@@ -55,8 +55,9 @@ class Home extends React.PureComponent {
         blogTitle={title}
         settings={{ ...settings, patternImg: home_cover }}
         options={options}
+        isHome={true}
         menus={menus}>
-        <div className="container mx-auto px-4 content-container">
+        <div className="container mx-auto px-4 content-container" id="arch">
           <div
             className="posts grid lg:grid-cols-3 md:grid-cols-2
           sm:grid-cols-2 xs:grid-cols-1 lg:gap-6 md:gap-4 sm:gap-3 mt-4">
@@ -73,6 +74,8 @@ class Home extends React.PureComponent {
               onPageChange={this.handlePageClick}
               containerClassName={'pagination-list flex flex-row'}
               pageClassName={''}
+              breakLabel={'...'}
+              breakLinkClassName={'pagination-break'}
               pageLinkClassName={'pagination-circle'}
               activeLinkClassName={'is-current'}
               pageCount={pages}

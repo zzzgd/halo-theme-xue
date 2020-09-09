@@ -22,7 +22,7 @@ const SpinnerRoot = styled('div')`
   border-radius: 999px;
   margin: 0 auto;
   position: relative;
-  margin-top: 100px;
+  margin-top: 90px;
 
   &:after,
   &:before {

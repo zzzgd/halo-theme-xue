@@ -38,7 +38,7 @@ class Tags extends React.PureComponent {
         <div className="container mx-auto px-4 mt-16 max-w-6xl tracking-wider md:leading-relaxed sm:leading-normal ct-container cn-pd content-container">
           <p className="flex flex-row justify-start flex-wrap">
             {tagList.map((tag, index) => (
-              <Tag slug={`/tags/${tag.slug}`} name={tag.name} postCount={tag.postCount} key={index} />
+              <Tag slug={`/tag/${tag.slug}`} name={tag.name} postCount={tag.postCount} key={index} />
             ))}
           </p>
         </div>

@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from '../../../server/routes';
-import { formatDate, isEmpty, obtainValueInArray } from 'utils/commonUtil';
-import Head from 'next/head';
+import { formatDate, isEmpty } from 'utils/commonUtil';
 
 class PostBanner extends React.PureComponent {
   render() {
-    const { options, post } = this.props;
+    const { post } = this.props;
     const { thumbnail, title, avatar, visits, createTime, categories } = post;
     let bgContent;
     if (thumbnail) {
@@ -19,8 +18,6 @@ class PostBanner extends React.PureComponent {
       bgContent = <div className="placeholder-bg" />;
     }
     const cate = isEmpty(categories) ? [] : categories;
-    const keywords = obtainValueInArray(options, 'seo_keywords');
-    const description = obtainValueInArray(options, 'seo_description');
     const folder = isEmpty(categories) ? (
       ''
     ) : (
@@ -30,11 +27,6 @@ class PostBanner extends React.PureComponent {
     );
     return (
       <header className={`bg-cover post-cover`} id="postHeader">
-        <Head>
-          <title>{title}</title>
-          <meta name="keywords" content={keywords} />
-          <meta name="description" content={description} />
-        </Head>
         {bgContent}
         <div className="cover-content post-cover-content flex justify-center">
           <div className="inner flex flex-col justify-center">

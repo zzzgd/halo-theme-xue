@@ -145,7 +145,7 @@ class Footer extends React.PureComponent {
             )}
           </div>
           <div className="site-info flex flex-col justify-center">
-            <p dangerouslySetInnerHTML={{ __html: blogFooterInfo }} />
+            <div dangerouslySetInnerHTML={{ __html: blogFooterInfo }} className="blog-footer-info" />
             {isEmpty(Icp) ? (
               ''
             ) : (
