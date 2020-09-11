@@ -1,3 +1,4 @@
+'use strict';
 const TABLE_NAME = 'hljs-ln',
   LINE_NAME = 'hljs-ln-line',
   CODE_BLOCK_NAME = 'hljs-ln-code',

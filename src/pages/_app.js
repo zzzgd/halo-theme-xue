@@ -3,11 +3,11 @@ import App from 'next/app';
 
 import { wrapper } from 'store/with-redux-store';
 import { ConnectedRouter } from 'connected-next-router';
-
 import 'typeface-metropolis';
 import '@typefaces-pack/typeface-inter';
+import 'assets/styles/tailwind-custom.css';
 import 'assets/styles/index.scss';
-import 'viewerjs/dist/viewer.min.css';
+import 'viewerjs/dist/viewer.css';
 import 'highlight.js/styles/github.css';
 import 'justifiedGallery/dist/css/justifiedGallery.min.css';
 

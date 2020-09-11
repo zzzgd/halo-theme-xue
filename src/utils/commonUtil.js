@@ -19,33 +19,45 @@ function dateFormat(fmt, date) {
 }
 
 export function formatDate(datetime) {
-  const date = new Date(datetime);
-  return dateFormat('yyyy-MM-dd', date);
+  let date = new Date(datetime);
+  const str = dateFormat('yyyy-MM-dd', date);
+  date = null;
+  return str;
 }
 
 export function formatDate2CHN(datetime) {
-  const date = new Date(datetime);
-  return dateFormat('yyyy年MM月dd日', date);
+  let date = new Date(datetime);
+  const str = dateFormat('yyyy年MM月dd日', date);
+  date = null;
+  return str;
 }
 
 export function getDateMonth(datetime) {
-  const date = new Date(datetime);
-  return dateFormat('MM', date);
+  let date = new Date(datetime);
+  const str = dateFormat('MM', date);
+  date = null;
+  return str;
 }
 
 export function getDateYear(datetime) {
-  const date = new Date(datetime);
-  return dateFormat('yyyy', date);
+  let date = new Date(datetime);
+  const str = dateFormat('yyyy', date);
+  date = null;
+  return str;
 }
 
 export function getFormatDate(datetime) {
-  const date = new Date(datetime);
-  return dateFormat('MM-dd', date);
+  let date = new Date(datetime);
+  const str = dateFormat('MM-dd', date);
+  date = null;
+  return str;
 }
 
 export function formatFullDate(datetime) {
-  const date = new Date(datetime);
-  return dateFormat('yyyy-MM-dd HH:mm:SS', date);
+  let date = new Date(datetime);
+  const str = dateFormat('yyyy-MM-dd HH:mm:SS', date);
+  date = null;
+  return str;
 }
 
 export function obtainValueInArray(arr, k) {
@@ -67,7 +79,7 @@ export function getLocalStorage(key) {
     const vals = localStorage.getItem(key); // 获取本地存储的值
     const dataObj = JSON.parse(vals); // 将字符串转换成JSON对象
     // 如果(当前时间 - 存储的元素在创建时候设置的时间) > 过期时间
-    const isTimed = new Date().getTime() - dataObj.timer > exp;
+    let isTimed = new Date().getTime() - dataObj.timer > exp;
     let newValue = null;
     if (isTimed) {
       console.log('存储已过期');
@@ -76,6 +88,7 @@ export function getLocalStorage(key) {
     } else {
       newValue = dataObj.val;
     }
+    isTimed = null;
     return newValue;
   } else {
     return null;
@@ -107,7 +120,7 @@ export function isQuotaExceeded(e) {
 }
 
 export function setLocalStorage(key, value) {
-  const curtime = new Date().getTime(); // 获取当前时间 ，转换成JSON字符串序列
+  let curtime = new Date().getTime(); // 获取当前时间 ，转换成JSON字符串序列
   const valueDate = JSON.stringify({
     val: value,
     timer: curtime,
@@ -124,6 +137,7 @@ export function setLocalStorage(key, value) {
       console.log('Error: 保存到本地存储失败');
     }
   }
+  curtime = null;
 }
 
 /**
@@ -162,7 +176,7 @@ export function timeAgo(dateTimeStamp) {
   const week = day * 7;
   // const halfamonth = day * 15;
   const month = day * 30;
-  const now = new Date().getTime(); //获取当前时间毫秒
+  let now = new Date().getTime(); //获取当前时间毫秒
   const diffValue = now - dateTimeStamp; //时间差
 
   if (diffValue < 0) {
@@ -191,16 +205,18 @@ export function timeAgo(dateTimeStamp) {
   } else if (diffValue >= 0 && diffValue <= minute) {
     result = '刚刚';
   } else {
-    var datetime = new Date();
+    let datetime = new Date();
     datetime.setTime(dateTimeStamp);
-    var Nyear = datetime.getFullYear();
-    var Nmonth = datetime.getMonth() + 1 < 10 ? '0' + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
-    var Ndate = datetime.getDate() < 10 ? '0' + datetime.getDate() : datetime.getDate();
-    var Nhour = datetime.getHours() < 10 ? '0' + datetime.getHours() : datetime.getHours();
-    var Nminute = datetime.getMinutes() < 10 ? '0' + datetime.getMinutes() : datetime.getMinutes();
-    var Nsecond = datetime.getSeconds() < 10 ? '0' + datetime.getSeconds() : datetime.getSeconds();
+    let Nyear = datetime.getFullYear();
+    let Nmonth = datetime.getMonth() + 1 < 10 ? '0' + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
+    let Ndate = datetime.getDate() < 10 ? '0' + datetime.getDate() : datetime.getDate();
+    let Nhour = datetime.getHours() < 10 ? '0' + datetime.getHours() : datetime.getHours();
+    let Nminute = datetime.getMinutes() < 10 ? '0' + datetime.getMinutes() : datetime.getMinutes();
+    let Nsecond = datetime.getSeconds() < 10 ? '0' + datetime.getSeconds() : datetime.getSeconds();
     result = Nyear + '/' + Nmonth + '/' + Ndate + ' ' + Nhour + ':' + Nminute + ':' + Nsecond;
+    datetime = null;
   }
+  now = null;
   return result;
 }
 
@@ -225,12 +241,13 @@ export function archivePhotos(data) {
       });
     }
   });
+  d = null;
   return c;
 }
 
 // 特殊字符转义成HTML标签
 export function decodeHTML(html) {
-  var output,
+  let output,
     elem = document.createElement('div');
   elem.innerHTML = html;
   output = elem.innerText || elem.textContent;

@@ -6,7 +6,7 @@ import $ from 'jquery';
 import { ROUTER } from './constants';
 import commonApi from 'api/common';
 import sheetApi from 'api/sheet';
-import { markdown } from 'utils/markdownUtil';
+import { markdown } from 'utils/markdown';
 import Comment from 'components/Comments';
 import Layout from 'components/Layout';
 import { isEmpty } from 'utils/commonUtil';

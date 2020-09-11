@@ -10,6 +10,7 @@ import $ from 'jquery';
 import { ROUTER } from './constants';
 import Viewer from 'viewerjs';
 
+let viewer = null;
 class Photo extends React.PureComponent {
   static async getInitialProps() {
     const options = await commonApi.getOptions();
@@ -42,14 +43,15 @@ class Photo extends React.PureComponent {
   }
 
   initViewer() {
-    const write = $('#gallery-content');
-    if (isEmpty(write)) {
-      return;
-    }
     // viewer 图片灯箱功能
-    new Viewer(write[0], {
+    viewer = new Viewer(document.getElementById('gallery-content'), {
       inline: false,
     });
+  }
+
+  componentWillUnmount() {
+    viewer = null;
+    document.body.removeChild(document.getElementById('gallery-content'));
   }
 
   render() {
@@ -58,12 +60,16 @@ class Photo extends React.PureComponent {
     if (loading) {
       return <Layout menus={menus} loading={loading} />;
     }
-    const { photos_patternimg } = settings;
-
-    const { slug } = this.props.router.query;
-    const photoSettings = { ...settings, name: slug, patternImg: photos_patternimg, enabled_index_cover_height: false };
+    const { photos_patternimg, photos_title } = settings;
+    const title = isEmpty(photos_title) ? '相册' : photos_title;
+    const photoSettings = {
+      ...settings,
+      name: title,
+      patternImg: photos_patternimg,
+      enabled_index_cover_height: false,
+    };
     return (
-      <Layout loading={loading} options={options} settings={photoSettings} blogTitle={slug} menus={menus}>
+      <Layout loading={loading} options={options} settings={photoSettings} blogTitle={title} menus={menus}>
         <div className="container mx-auto px-4 content-container">
           <div
             className="container mx-auto px-4 mt-16 max-w-6xl tracking-wider md:leading-relaxed

@@ -22,7 +22,7 @@ function moveNavigation() {
 }
 
 function checkWindowWidth() {
-  var mq = window
+  const mq = window
     .getComputedStyle(document.querySelector('.nav-header'), '::before')
     .getPropertyValue('content')
     .replace(/"/g, '')

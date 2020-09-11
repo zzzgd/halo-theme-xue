@@ -8,7 +8,7 @@ import PostBanner from 'components/PostBanner';
 import Head from 'next/head';
 import { obtainValueInArray } from '../../utils/commonUtil';
 
-function Layout({ children, loading, settings, blogTitle, options, isPost, post, menus, isHome }) {
+function Layout({ children, loading, settings, blogTitle = 'Blog', options, isPost, post, menus, isHome }) {
   const keywords = obtainValueInArray(options, 'seo_keywords');
   const description = obtainValueInArray(options, 'seo_description');
   const favicon = obtainValueInArray(options, 'blog_favicon');

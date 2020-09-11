@@ -12,11 +12,11 @@
     "deploy" : {
             "production" : {
                 "user" : "root",
-                "host" : ["127.xx.xx.xx"],
+                "host" : "139.9.241.164",
                 "ref"  : "origin/master",
-                "repo" : "https://github.com/xx/xx",
-                "path" : "/opt/app/react-next",
-				"pre-setup" : "rm -rf /opt/app/react-next/source",
+                "repo" : "https://github.com/xzzai/halo-xue-react-next",
+                "path" : "/opt/app/react-next-xue",
+                "pre-setup" : "rm -rf /opt/app/react-next-xue/source",
                 "post-deploy" : "cnpm install && npm run build && pm2 startOrRestart ecosystem.json --env production",
                 "ssh_options": ["StrictHostKeyChecking=no", "PasswordAuthentication=yes"],
                 "env"  : {

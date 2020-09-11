@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import OutsideClickHandler from 'react-outside-click-handler';
+import { isEmpty } from 'utils/commonUtil';
 
 class CoffeeModal extends React.PureComponent {
   constructor(props) {
@@ -82,10 +83,11 @@ class CoffeeModal extends React.PureComponent {
                   aria-label="Close modal"
                   id="closeCoffeeModalBtn"
                   onClick={() => this.handleClose()}
+                  type="button"
                 />
               </header>
               <div className="modal__content flex flex-row justify-center">
-                {!zfb || zfb === '' ? (
+                {isEmpty(zfb) ? (
                   ''
                 ) : (
                   <div
@@ -96,7 +98,7 @@ class CoffeeModal extends React.PureComponent {
                     <img className="qr_code_zfb qr-code" src={zfb} alt="AliPay" />
                   </div>
                 )}
-                {!wechat || wechat === '' ? (
+                {isEmpty(wechat) ? (
                   ''
                 ) : (
                   <div
@@ -109,17 +111,23 @@ class CoffeeModal extends React.PureComponent {
                 )}
               </div>
               <footer className="modal__footer flex flex-row justify-center">
-                {!zfb || zfb === '' ? (
+                {isEmpty(zfb) ? (
                   ''
                 ) : (
-                  <button className={classNames('modal__btn zfb-btn code-btn')} onClick={() => this.clickZfb()}>
+                  <button
+                    className={classNames('modal__btn zfb-btn code-btn')}
+                    onClick={() => this.clickZfb()}
+                    type="button">
                     支付宝
                   </button>
                 )}
-                {!wechat || wechat === '' ? (
+                {isEmpty(wechat) ? (
                   ''
                 ) : (
-                  <button className={classNames('modal__btn wx-btn code-btn')} onClick={() => this.clickWx()}>
+                  <button
+                    className={classNames('modal__btn wx-btn code-btn')}
+                    onClick={() => this.clickWx()}
+                    type="button">
                     微信
                   </button>
                 )}

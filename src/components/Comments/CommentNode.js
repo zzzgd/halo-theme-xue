@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { isEmpty, timeAgo, decodeHTML } from 'utils/commonUtil';
 import CommentEditor from './CommentEditor';
 import ua from 'ua-parser-js';
-import { markdown } from 'utils/markdownUtil';
+import { markdown } from 'utils/markdown';
 import $ from 'jquery';
 import Viewer from 'viewerjs';
 

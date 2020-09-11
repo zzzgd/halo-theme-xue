@@ -1,10 +1,9 @@
 import React, { createRef } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { markdown } from 'utils/markdownUtil';
+import { markdown } from 'utils/markdown';
 import Warnings from './Warnings';
 import { isEmpty } from 'utils/commonUtil';
-import { Picker } from 'emoji-mart';
 
 class CommentEditor extends React.PureComponent {
   constructor(props) {
@@ -155,29 +154,6 @@ class CommentEditor extends React.PureComponent {
                 提交
               </button>
             </div>
-          </div>
-          <div
-            className={classNames('x-comment-emojis', {
-              hidden: this.state.emojiHidden,
-            })}>
-            <Picker
-              set="apple"
-              onSelect={this.addEmoji}
-              emojiTooltip={true}
-              style={{ width: '100%', height: '100%', overflow: 'scroll', overflowX: 'hidden' }}
-              exclude={[
-                'search',
-                'recent',
-                'nature',
-                'foods',
-                'activity',
-                'places',
-                'objects',
-                'symbols',
-                'flags',
-                'custom',
-              ]}
-            />
           </div>
           <div
             className={classNames('x-comment-input x-comment-preview', {

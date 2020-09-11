@@ -1,42 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { obtainValueInArray, isEmpty } from 'utils/commonUtil';
+import { isEmpty, obtainValueInArray } from 'utils/commonUtil';
 import Badge from 'components/Badge';
-import MoonMenu from 'components/MoonMenu';
 
 class Footer extends React.PureComponent {
   constructor(props) {
     super(props);
     this.checkNull = this.checkNull.bind(this);
-    this.state = {
-      dateTime: '',
-    };
   }
 
-  componentDidMount() {
-    const notNull = this.checkNull();
-    if (!notNull) {
-      return;
-    }
-    this.timeStatistics(this.props.settings);
-  }
-
-  timeStatistics(settings) {
-    const { TimeStatistics } = settings;
-    if (TimeStatistics) {
-      const BirthDay = new Date(TimeStatistics);
-      const today = new Date();
-      const timeold = today.getTime() - BirthDay.getTime();
-      const msPerDay = 24 * 60 * 60 * 1000;
-      const e_daysold = timeold / msPerDay;
-      const daysold = Math.floor(e_daysold);
-      const e_hrsold = (e_daysold - daysold) * 24;
-      const hrsold = Math.floor(e_hrsold);
-      this.setState({
-        dateTime: daysold + '天' + hrsold + '小时',
-      });
-    }
-  }
+  componentDidMount() {}
 
   checkNull() {
     const { settings, options } = this.props;
@@ -53,19 +26,7 @@ class Footer extends React.PureComponent {
     const themeBase = obtainValueInArray(options, 'theme_base');
     const blogFooterInfo = obtainValueInArray(options, 'blog_footer_info');
 
-    const {
-      sina,
-      qq,
-      telegram,
-      twitter,
-      github,
-      zhihu,
-      mail,
-      rss,
-      Icp,
-      PublicSecurityRecord,
-      TimeStatistics,
-    } = settings;
+    const { sina, qq, telegram, twitter, github, zhihu, mail, rss, Icp, PublicSecurityRecord } = settings;
     return (
       <footer className="footer mt-8">
         <div
@@ -184,23 +145,10 @@ class Footer extends React.PureComponent {
                 url={'https://github.com/xzzai/halo-theme-xue.git'}
                 value={<span className="badge-value bg-red">Xue</span>}
               />
-              {isEmpty(TimeStatistics) ? (
-                ''
-              ) : (
-                <Badge
-                  name={'运行'}
-                  url={'#'}
-                  value={
-                    <span className="badge-value bg-orange" id="span_dt_dt">
-                      {this.state.dateTime}
-                    </span>
-                  }
-                />
-              )}
             </div>
           </div>
         </div>
-        <MoonMenu />
+        {/*<MoonMenu />*/}
       </footer>
     );
   }

@@ -3,7 +3,16 @@ module.exports = {
     removeDeprecatedGapUtilities: true,
   },
   purge: {
-    enabled: process.env.NODE_ENV === 'production',
-    content: ['./src/components/**/*.js', './src/pages/**/*.vue', './src/assets/**/*.js'],
+    layers: ['utilities'],
+    content: ['./src/components/**/*.{js,ts,jsx,tsx}', './src/pages/**/*.{js,ts,jsx,tsx}'],
   },
+  theme: {
+    extend: {
+      colors: {
+        'accent-1': '#333',
+      },
+    },
+  },
+  variants: {},
+  plugins: [],
 };

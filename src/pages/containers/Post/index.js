@@ -3,22 +3,21 @@ import PropTypes from 'prop-types';
 import commonApi from 'api/common';
 import userApi from 'api/user';
 import postApi from 'api/post';
-import $ from 'jquery';
 import Link from 'next/link';
 import { connect } from 'react-redux';
-import ClipboardJS from 'clipboard';
 import Viewer from 'viewerjs';
+import $ from 'jquery';
 import { ROUTER } from './constants';
 import Layout from 'components/Layout';
 import { isEmpty, obtainValueInArray } from 'utils/commonUtil';
-import { markdown } from 'utils/markdownUtil';
-import { lineNumbersBlock } from 'utils/line-number.config';
+import { markdown } from 'utils/markdown';
+import { lineNumbersBlock } from 'utils/lineNumber';
 import CoffeeButton from 'components/CoffeeButton';
 import Tag from 'components/Tag';
 import Comment from 'components/Comments';
 import CoffeeModal from 'components/CoffeeModal';
 
-let clipboard = null;
+let viewer = null;
 class Post extends React.PureComponent {
   static getInitialProps = async ({ query }) => {
     const { id, slug } = query;
@@ -52,7 +51,7 @@ class Post extends React.PureComponent {
   componentDidMount() {
     this.initViewer();
     this.handleLineNumberAndClippy();
-    clipboard = new ClipboardJS('.btn');
+    // clipboard = new ClipboardJS('.btn');
   }
 
   handleCoffeeButton() {
@@ -64,53 +63,19 @@ class Post extends React.PureComponent {
   }
 
   componentWillUnmount() {
-    if (!isEmpty(clipboard)) {
-      clipboard.destroy();
-      clipboard = null;
-    }
-    // window.removeEventListener('scroll', this.handleTocScroll, false);
-  }
-
-  handleLineNumber() {
-    $('pre>code[class*="language-"]').each(function (i, block) {
-      lineNumbersBlock(block);
-    });
+    viewer = null;
+    document.body.removeChild(document.getElementById('write'));
   }
 
   handleLineNumberAndClippy() {
     $('pre>code[class*="language-"]').each(function (i, block) {
       lineNumbersBlock(block);
-      let value = block.getAttribute('value');
-      if (!isEmpty(value)) {
-        value = unescape(value);
-      }
-
-      const parent = block.parentNode;
-      const node = document.createElement('div');
-      node.className = 'btn copy-btn';
-      node.setAttribute('data-clipboard-text', `${value}`);
-      node.onclick = e => {
-        const parent = e.target.parentNode;
-        if (!parent.classList.contains('btn')) {
-          return;
-        }
-        parent.innerText = 'Copied!';
-        setTimeout(() => {
-          parent.innerHTML = `<img class="clippy" width="13" src=${'/static/images/clippy.svg'} alt="Copy to clipboard" />`;
-        }, 1000);
-      };
-      node.innerHTML = `<img class="clippy" width="13" src=${'/static/images/clippy.svg'} alt="Copy to clipboard" />`;
-      parent.insertBefore(node, block.nextSibling);
     });
   }
 
   initViewer() {
-    const write = $('#write');
-    if (isEmpty(write)) {
-      return;
-    }
     // viewer 图片灯箱功能
-    new Viewer(write[0], {
+    viewer = new Viewer(document.getElementById('write'), {
       inline: false,
     });
   }
@@ -217,7 +182,5 @@ Post.propTypes = {
   router: PropTypes.object,
   menus: PropTypes.array,
 };
-
-// const withConnect = connect(mapStateToProps, mapDispatchToProps);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Post);
