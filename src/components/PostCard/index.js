@@ -35,7 +35,7 @@ class PostCard extends React.PureComponent {
       cardImg = (
         <LazyLoad once={true} placeholder={<Spiner />} debounce={500}>
           <Link href={`/post/${id}`}>
-            <figure className={classNames('', { 'effect-ming': card_hover_summary })}>
+            <figure className={classNames('', { 'effect-jazz': card_hover_summary })}>
               <img
                 src={thumbnail}
                 className="img-cover img-cover-bg"
@@ -60,7 +60,7 @@ class PostCard extends React.PureComponent {
       cardImg = (
         <LazyLoad once={true} placeholder={<Spiner />} debounce={500}>
           <Link href={`/post/${id}`}>
-            <figure className={classNames('', { 'effect-ming': card_hover_summary })}>
+            <figure className={classNames('', { 'effect-jazz': card_hover_summary })}>
               <img
                 src={`${blogUrl}/thumbnail/thumbnail-${thumbnailIndex}.${card_random_cover_img_suffix}`}
                 className="img-cover img-cover-bg"
@@ -83,7 +83,7 @@ class PostCard extends React.PureComponent {
     } else {
       cardImg = (
         <Link href={`/post/${id}`}>
-          <figure className={classNames('', { 'effect-ming': card_hover_summary })}>
+          <figure className={classNames('', { 'effect-jazz': card_hover_summary })}>
             <span className="img-cover no-thumb">
               <span className="full-image placeholder-bg" role="img" aria-label="" />{' '}
             </span>

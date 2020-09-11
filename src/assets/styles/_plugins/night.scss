@@ -60,8 +60,12 @@
     color: $nightTxtColor !important;
   }
 
-  .post-excerpt {
-    color: $nightSummaryColor !important;
+  //.post-excerpt {
+  //  color: $nightSummaryColor !important;
+  //}
+
+  .post-excerpt span {
+    color: $nightTxtColor !important;
   }
 
   // 代码和文章页面
