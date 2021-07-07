@@ -15,6 +15,8 @@
         <#-- jquery -->
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+        <#--增加动态图标支持-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome-animation/dist/font-awesome-animation.min.css">
 
     </head>
     <body class="<#if settings.default_night_mode!false>night</#if>">
