@@ -22,7 +22,7 @@
                 <@menuTag method="tree">
                     <#list menus?sort_by('priority') as menu>
                         <li class="item ">
-                            <a class="link md:text-base sm:text-sm" href="${menu.url!}"
+                            <a class="link md:text-base sm:text-sm ${menu.icon!}" href="${menu.url!}"
                                target="${menu.target!}">${menu.name}</a>
                         </li>
                     </#list>

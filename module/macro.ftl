@@ -14,6 +14,8 @@
         <#include "styles.ftl">
         <#-- jquery -->
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+
     </head>
     <body class="<#if settings.default_night_mode!false>night</#if>">
     <#include "header.ftl">
@@ -24,7 +26,6 @@
     <#include "plugins.ftl"/>
 <#--    <script src="${theme_base!}/source/js/main.js?ver=${.now?long}"></script>-->
         <script src="${theme_base!}/source/js/main.js?ver=202101052201"></script>
-
     <#include "script.ftl">
 
     </html>

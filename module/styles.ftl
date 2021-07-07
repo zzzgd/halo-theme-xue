@@ -61,6 +61,10 @@
   }
 
   </#if>
+
+body{ cursor: url(http://youpai.zzzgd.info/halo/cursor.ico),auto;}
+
+
 </style>
 
 <link rel="stylesheet"

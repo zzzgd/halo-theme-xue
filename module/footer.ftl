@@ -44,9 +44,14 @@
                     <span class="iconfont icon-rss"> </span>
                 </a>
             </#if>
+          <#-- csdn博客 -->
+          <a href="https://blog.csdn.net/zzzgd_666" class="circle pad-10" target="_blank" rel="noopener" title="CSDN">
+                    <span class="iconfont "><img src="https://cdn.jsdelivr.net/gh/zzzgd/storage@master/src=http___img3.doubanio.com_lpic_s26866793.jpg&refer=http___img3.doubanio.jpg"/> </span>
+                </a>
+          <#-- 统计地图 -->
+          <a href="https://www.revolvermaps.com/livestats/5g4ftlhioo2/"><img src="//rf.revolvermaps.com/h/m/a/2/ff0000/100/10/5g4ftlhioo2.png" width="200" height="100" alt="Map" style="border:0;"></a>
         </div>
         <#-- 社交信息 end -->
-
         <div class="site-info flex flex-col justify-center">
             <@global.footer />
             <#if settings.Icp??>
@@ -58,8 +63,16 @@
                        class="text-xs">${settings.PublicSecurityRecord!}</a>
                 </p>
             </#if>
+
+           <!-- 又拍云 -->
+          <p class="text-xs">
+            <a href="https://www.upyun.com/?utm_source=lianmeng&amp;utm_medium=referral" style="white-space:nowrap;">本站由
+              <img src="https://files.catbox.moe/5uww4c.png" width="60px" style="display:inline">提供CDN加速</a>
+          </p>
+
             <!-- 请尊重作者，请务必保留版权 -->
             <div class="badges">
+             
                 <div class="github-badge">
                     <a style="color: #fff" rel="license" href="http://halo.run" target="_blank">
                         <span class="badge-subject">Powered</span>
@@ -99,6 +112,7 @@
             </div>
         </div>
     </div>
+
 </footer>
 
 <#if settings.right_corner_circle!true>
