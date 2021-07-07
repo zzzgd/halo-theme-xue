@@ -22,12 +22,17 @@
                 <@menuTag method="tree">
                     <#list menus?sort_by('priority') as menu>
                         <li class="item ">
-                            <a class="link md:text-base sm:text-sm ${menu.icon!}" href="${menu.url!}"
-                               target="${menu.target!}">${menu.name}</a>
+                            <a class="link md:text-base sm:text-sm " href="${menu.url!}" target="${menu.target!}">
+                                <span class="faa-parent animated-hover">
+                                    <i class="${menu.icon!}" aria-hidden="true"></i>
+                                    ${menu.name}
+                                </span>
+                            </a>
                         </li>
                     </#list>
                 </@menuTag>
             </div>
+
             <div class="list -right">
                 <div class="overlay"></div>
             </div>
